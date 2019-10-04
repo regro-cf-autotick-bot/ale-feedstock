@@ -9,7 +9,7 @@ source:
   sha256: 81e0de8e576119ef7a2d861a97cdb419ff0cf86438e1f8d7f0532f4c3ec268d4
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
 
 requirements:
@@ -40,6 +40,10 @@ requirements:
 test:
   imports:
     - ale
+  commands:
+    - conda inspect linkages -p $PREFIX $PKG_NAME
+    - test -e $PREFIX/lib/libale${SHLIB_EXT}
+    - test -e $PREFIX/include/ale.h
 
 about:
   home: https://github.com/USGS-Astrogeology/ale
