@@ -7,9 +7,11 @@ package:
 source:
   url: https://github.com/USGS-Astrogeology/{{ name }}/archive/{{ version }}.tar.gz
   sha256: 795fb9286e6161e61d9888a5e3142031c85bb06ed23cddd1d5c4e0db8e9bf376
+  patches:
+    - patches/python_36.patch  # [py==36]
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win or py2k]
 
 requirements:
